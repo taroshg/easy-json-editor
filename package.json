@@ -1,8 +1,9 @@
 {
   "name": "easy-json-editor",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "edit json files with ease",
   "main": "index.js",
   "author": "Tarosh Gurramkonda",
-  "license": "ISC"
+  "license": "ISC",
+  "keywords": ["json", "easy json editor", "json editor", "taroshg"]
 }

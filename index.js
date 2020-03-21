@@ -48,15 +48,31 @@ module.exports.file = (file) => {
                 let json = JSON.parse(data);
                 for(let i in json){
                     if(json[i][key] === value){
-                        console.log('object removed');
                         json.splice(i, 1);
                         fs.writeFileSync(file, JSON.stringify(json));
+                        console.log('object removed');
                         return;
                     }
                 }
                 console.log(`cannot remove something that does not exist`);
             });
         },
+
+        replace: (whereKey, whereValue, key, newValue) => {
+            fs.readFile(file, (error, data) => {
+                if(error)return console.log(error.message);
+                let json = JSON.parse(data);
+                for(let i in json){
+                    if(json[i][whereKey] === whereValue){
+                        json[i][key] = newValue;
+                        fs.writeFileSync(file, JSON.stringify(json));
+                        console.log(`${key} key's value was replaced with ${newValue}`);
+                        return;
+                    }
+                }
+                console.log(`cannot remove something that does not exist`);
+            });
+        }
     };
 
     return self;
